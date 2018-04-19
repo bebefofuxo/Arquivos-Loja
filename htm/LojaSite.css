@@ -1,0 +1,141 @@
+/* FastCommerce Responsivo - Bebê Fofuxo */
+
+body {font-size:12px;font-family:tahoma,verdana}
+p {font-size:12px;font-family:arial}
+TH {background:#FFFFCC;color:#336699;font-size:13px;font-family:verdana,arial}
+TD {font-size:12px;font-family:tahoma,verdana}
+img {border-style:none;}
+
+/* Estilos de fundo 
+.FundoSiteCentro{background:#FFFFFF}
+.FundoTopoExt{background:#FFFFFF}
+.FundoSiteInt{background:#FFFFFF} */
+
+/* Estilos para as páginas */
+.Titulos {text-decoration:none}
+.smSelect {font-size:12px;font-family:tahoma,verdana}
+.smText {font-size:12px;font-family:tahoma,verdana}
+.mnText {font-size:12px;font-family:verdana,arial}
+.mdtxt {font-size:13px;font-family:verdana,arial}
+.lgtxt {font-size:13px;font-weight:bold;color:#574020;font-family:tahoma,verdana;text-decoration:none}
+.TextoPequeno {font-size:12px;font-family:tahoma,verdana}
+
+/* Estilos para a capa */
+.EstTexto1{font-weight:bold;color:#242d3a;font-size:12px;font-family:verdana,tahoma,arial;position:relative;top:6px;left:20px}
+.EstTexto2 {font-size:12px;font-family:tahoma,verdana}
+.EstTexto3 {font-size:12px;font-family:tahoma,verdana}
+.EstTexto4 {font-size:16pt;font-family:tahoma,verdana;color:#1a1b1d;position:relative;left:0px;top:10px; font-weight:bold;}
+.EstTexto5 {font-size:14pt;font-family:tahoma,verdana;color:#1a1b1d;position:relative;left:150px;top:10px; font-weight:bold;}
+.StyNameProdHome {font-family:tahoma,arial;font-size:12px;font-weight:bold;color:#574020}
+.EstListaNomeProdCapa {font-size:12px;font-family:verdana,arial}
+.EstDescrProdCapa {font-size:12px;font-family:tahoma,verdana}
+.EstAdicProdCapa {font-size:12px;font-family:tahoma,verdana}
+.AdicNomeCapa {font-size:12px;font-family:tahoma,verdana}
+.AdicItemCapa {font-size:12px;font-family:tahoma,verdana;font-weight:bold;color:#574020}
+.EstPrecoProdCapa {color:#972B00;font-size:12px;font-family:arial}
+.EstFundoTabCapa {background:#FFFFFF;font-size:12px;font-family:arial}
+.StyBorderProdHome{border-color:#DDDDDD;border-width:1px;border-style:solid}
+.ProdImageTopHalf{background-image: url(../images/prodimagetophalf.gif);background-repeat: repeat-x;}
+.ProdImageBottomHalf{background-image: url(../images/prodimagebottomhalf.gif);background-repeat: repeat-x;}
+.ProdImageLeftHalf{background-image: url(../images/prodimagelefthalf.gif);background-repeat: repeat-y;}
+.ProdImageRightHalf{background-image: url(../images/prodimagerighthalf.gif);background-repeat: repeat-y;}
+
+/* Estilos para a Barra */
+.EstTitSecao {background:#FFFFFF;font-size:12px;color:#000000;font-family:tahoma,verdana;font-weight:bold}
+.EstCorTabExt {background:#EEEEEE}
+.EstCorTabInt {background:#FFFFFF}
+.EstCorTabPromExt {background:#0072BC}
+.EstCorTabPromInt {background:#EDEEE9}
+.EstListaNomeProdBarra {font-size:13px;font-family:verdana,arial;font-weight:bold;color:#928A44}
+.EstPrecoProdBarra {font-size:12px;color:#972B00;font-family:arial}
+.EstLinhaBarra{background:#FFFFFF}
+.EstLinhaBarraExt{background:#FFFFFF}
+
+/*  Estilo para os formulários BOTÕES e INPUTs TEXT */
+.InputText {border-color:#333333;border-width:1;border-style:solid;background-color:#F5F5F5;font-size:11;font-family:tahoma,verdana;color:#6C6C6C}
+.InputTextBusca {height:18px;border-color:#333333;border-width:1;border-style:solid;background-color:#F5F5F5;font-size:11;font-family:verdana;color:#6C6C6C}
+.InputButton {border-width:1;font-size:11;font-family:verdana}
+
+/*  Estilo BOTÕES */
+.BotLancamento {color:#FF0101;font-size:7pt;font-family:verdana,arial}
+.BotComprar{display:none}
+.BotEsgotado {font-size:12px;font-family:verdana,arial}
+.BotExcluir {font-size:12px;font-family:verdana,arial;}
+
+@media only screen and (max-width: 480px) {
+  .BotExcluir {float:right}
+}
+
+.BotMaisDetalhes {color:#574020;font-size:7pt;font-family:verdana,arial;text-decoration:none}
+
+/*  Texto das Setas de VER MAIS */
+.BotVerMais {color:#187095;font-size:12px;font-family:verdana,arial;font-weight:bold;text-decoration:none}
+.BotVerMais:hover {color:#187095;text-decoration:underline}
+
+/* Estilos do PEDIDO */
+.EstTabPedidoTit {background:#0072BC;color:#fff;font-size:13px;font-family:arial;font-weight:bold}
+.EstTabPedidoNome {color:#333;font-size:12px;font-weight:bold;font-family:arial}
+.EstTabPedidoNome:hover {color:#000}
+.EstTabPedido {font-size:13px;background:#e1e1e1}
+.EstTabPedidoNum {font-size:13px;background:#e1e1e1;font-family:arial}
+.EstTabPedidoTotal {font-size:12px;background:#ccc;font-weight:bold}
+.EstTabPedidoFrete {font-size:12px;background:#FEF6EC;font-weight:bold}
+.EstTabPedidoBot {color:#000000;font-size:12px;font-weight:bold;font-family:arial}
+.EstTabPedidoRef {color:black;font-size:12px;font-family:tahoma,verdana}
+.EstTabPedidoAdicNome {font-size:12px;font-family:tahoma,verdana}
+.EstTabPedidoAdicItem {font-size:12px;font-family:tahoma,verdana;font-weight:bold}
+.EstTextoQtd {font-size:12px;font-family:tahoma,verdana;text-align:right}
+.EstContinuarComprando{font-size:13px;font-weight:bold;font-family:tahoma,verdana;color:#574020}
+
+/* Estilo de Títulos de Tabela CADASTRO DE CLIENTES, AJUDA, CONFIRMAÇÃO DO PEDIDO */
+.EstTabTopo {padding:3px 3px 3px 3px;background:rgb(242, 242, 242);color:rgb(102, 102, 102);font-size:13px;font-family:arial;font-weight:bold}
+input#EnviaCardCIL {
+    text-align: center !important;
+    padding: 15px;
+    border-radius: 5px !important;
+    text-transform: uppercase;
+    box-shadow: none;
+    background-color: #009900;
+    height: 40px;
+    color:white;
+    font-family:"Arial";
+    font-size:14px;
+}
+
+/* Estilo para a tabela de Busca Rápida, para tabela de Ajuda (Pagamentos) e Fale Conosco */
+.EstTabQuadro {background:#FAFAFA;font-size:12px;font-family:arial,Helvetica}
+
+/* Estilo dos campos do formulário clientes,fale conosco,...   */
+.EstNomeCampo {color:black;font-size:12px;font-family:tahoma,verdana;font-weight:bold}
+.EstCampo {font-size:12px;font-family:tahoma,verdana}
+
+/* Estilo Produto */
+br{line-height:2px}
+#ProdCont{display:block;padding:5px 5px 5px 5px;width:100%;color:#000000;font-size:12px;font-family:arial,Helvetica}
+.EstNomeLista{display:block;font-weight:bold;font-family:tahoma,verdana;text-align:center;width:100%;padding:15px 15px 15px 15px;}
+.EstNomeDetAmp{display:block;clear:left;position:relative;color:#e13300;font-size:12px;font-weight:bold;font-family:tahoma,verdana;left:20px}
+.EstRefCont{color:#919191;font-size:7pt;font-family:verdana,arial;font-weight:normal}
+.EstDescrLista{display:block;width:300px;color:#222222;font-size:12px;font-family:tahoma,verdana;font-weight:normal}
+.EstDescrDet{display:block;position:relative;float:left;width:100%;color:#222222;font-size:12px;font-family:tahoma,verdana;font-weight:normal;margin:75px 0px 0px 0px}
+.EstPrecoDet{display:block;position:relative;float:left;left:40px;top:90px}
+.EstPrecoAmp{display:block;position:relative;float:left;width:40%}
+.EstPrecoContSub{display:block;position:relative;float:left;color:#000000;font-size:12px;font-family:arial,Helvetica}
+.LinkComprarListaSub{display:block;width:120px;position:relative;float:left}
+.AdicionaisListaAmp{display:block;position:relative;float:left;width:50%}
+.TableParc{display:block;position:relative;float:left;left:50px}
+.ImagemProdAmp{display:block;clear:left;position:relative;text-align:center}
+.EstLancamentoCont{display:block;position:relative;text-align:right}
+.DetComprarLista{display:block;position:relative;}
+.TableExternaLista, .TableExternaListaSub{display:block}
+.AvisoDispLista, .AdicionaisListaSub, .TableParcAmp, .DivSpace{display:block;clear:left;position:relative}
+.ImagemProdLista, .ImagemProdDet, .AdicionaisListaDet, .EstPrecoLista{display:block;position:relative;}
+
+/*  Tabela de parcelamento */
+.TitTabParc{font-weight:bold;font-size:12px;font-family:tahoma,arial}
+.EstParcPar{background:#E8EDF1;font-size:12px;font-family:tahoma,verdana}
+.EstParcImpar{background:#FFFFFF;font-size:12px;font-family:tahoma,verdana}
+
+/* ESTILOS PARA AS FOTOS DE PRODUTOS NA CESTA E CROSS-SELLING  */ 
+.EstFotoProdCross{width:100;height:100}
+.EstFotoProdCesta{width:100;height:100}
+
