@@ -1,0 +1,220 @@
+<script src="<baseloja>htm/js/cycle.js" type="text/javascript"></script>
+<script src="<baseloja>htm/js/easing.js" type="text/javascript"></script>
+<script src='<baseloja>htm/js/OS_Home.js' type="text/javascript"></script>
+
+<script type="text/javascript">
+
+var jahVerificado = false;
+var xhr = new XMLHttpRequest();
+var timerResposta;
+  
+function tratarResposta () {
+  			
+    	if (xhr.readyState == 4 && xhr.status == 200) {
+        	
+              
+            if (xhr.responseText == "1")
+            {
+              	var divPai = document.getElementById('popupNews');
+             	var divResposta = document.getElementById('divRetorno');
+              	divPai.style.height = "373px";
+  				divResposta.style.display="block";
+          		timerResposta = setTimeout(esconderResposta, 4000);
+            	divResposta.innerHTML = "Você já está cadastrado!";
+                jahVerificado=false;
+            }
+            else if (xhr.responseText == "2")
+            {
+              	var divPai = document.getElementById('popupNews');
+              	var divResposta = document.getElementById('divRetorno');
+              	divPai.style.height = "373px";
+  				divResposta.style.display="block";
+          		timerResposta = setTimeout(esconderResposta, 4000);
+                divResposta.innerHTML = "Por favor, tente novamente.";
+                jahVerificado=false;
+            }
+            else
+            {
+               jahVerificado=true;
+               var formulario = document.querySelector(".formNews");
+               formulario.submit();
+            }
+         }
+         else
+         {
+         	jahVerificado=false;
+         }
+
+}
+  
+function verificarUsuarioCadastrado() {
+  	
+  	var txtField = document.querySelector(".campoEmailNews");
+  
+	if(jahVerificado==true)
+	{
+		return true;
+    }
+  	
+  	xhr.onreadystatechange = tratarResposta;
+    xhr.open("GET","https://fernandopastor.websiteseguro.com/phpmailer/enviarEmail.php?emailUsuario="+txtField.value,true);
+  
+  	
+    
+    xhr.send();
+  
+  	return false;
+}
+
+function esconderResposta(){
+  var divPai = document.getElementById('popupNews');
+  var divResposta = document.getElementById('divRetorno');
+  divResposta.style.display="none";
+  divPai.style.height = "350px";
+  clearTimeout(timerResposta);
+}
+  
+function mostrarInfo(){
+  var divPai = document.getElementById('popupNews');
+  var divResposta = document.getElementById('divRetorno');
+  divPai.style.height = "373px";
+  divResposta.style.display="block";
+  divResposta.innerHTML = "Gerando cupom. Aguarde...";
+  
+  
+}
+
+
+</script>
+
+<!-- PopNews -->
+
+
+<link type="text/css" rel="stylesheet" href="<baseloja>htm/popnews/popnews.css">
+<div id="modalParent" style="display: none;"></div>
+<div id="FullBackground" style="display: none;">
+<div id="popupNews">
+<div id="btnFechar"></div>  
+<div class="detail-quick-purchase">
+<img src="<baseloja>images/popnews/imgInfo.png" alt="">
+</div>
+<div class="barra-email">
+<form class="formNews" id="formPopup" name=FormNewsletter method=GET action="Newsletter.asp" onSubmit="return verificarUsuarioCadastrado();"/>
+<input type=hidden name=IDLoja value="<idloja>">
+<input type=hidden name=Y value="<Y>">
+<input type=hidden name=FormatoHTML value="True">
+<input type=hidden name=EnviarAssinante value="Enviar">
+<input class="campoEmailNews" type="email" required name=Email placeholder="seuemail@email.com">
+<input type="submit" onClick="mostrarInfo();" class="btnSubPop" name=ok value="" />
+</form>
+</div>
+<div id="divRetorno">
+</div>
+
+</div>
+</div>
+<script type="text/javascript">PopNews();</script>
+<!-- PopNews -->
+
+
+<div class="gth-banner">
+<div id="slides">
+    <banner 1>
+    <banner 2>
+    <banner 3>
+    <banner 4>
+    <banner 5>
+</div>
+</div>
+
+<div class="gth-banner2">
+  <div class="banner6"><banner 6></div>
+  <div class="banner7"><banner 7></div>
+</div>
+
+<div class="gth_produtos">  
+    <ul class="tabs">
+      <li><a href="#tab1">Lançamentos</a></li>
+      <li><a href="#tab2">Promoções</a></li>
+      <li><a href="#tab3">Mais Vendidos</a></li>
+    </ul>
+    <div class="tab_container">
+      <!--destaques-->
+      <div id="tab1" class="tab_content gt-vitrine">
+          <prod out="p255" em="lanc,rand">
+          <prod out="p255" em="lanc,rand">
+          <prod out="p255" em="lanc,rand">
+          <prod out="p255" em="lanc,rand">
+          <prod out="p255" em="lanc,rand">
+          <prod out="p255" em="lanc,rand">
+          <prod out="p255" em="lanc,rand">
+          <prod out="p255" em="lanc,rand">
+          <prod out="p255" em="lanc,rand">
+          <prod out="p255" em="lanc,rand">
+          <prod out="p255" em="lanc,rand">
+          <prod out="p255" em="lanc,rand"> 
+      </div>
+      
+      <!--promocoes-->
+      <div id="tab2" class="tab_content gt-vitrine">
+          <prod out="p255" em="prom,rand">
+          <prod out="p255" em="prom,rand">
+          <prod out="p255" em="prom,rand">
+          <prod out="p255" em="prom,rand">
+          <prod out="p255" em="prom,rand">
+          <prod out="p255" em="prom,rand">
+          <prod out="p255" em="prom,rand">
+          <prod out="p255" em="prom,rand">
+          <prod out="p255" em="prom,rand">
+          <prod out="p255" em="prom,rand">
+          <prod out="p255" em="prom,rand">
+          <prod out="p255" em="prom,rand">
+      </div>
+      
+      <!--lancamentos-->
+      <div id="tab3" class="tab_content gt-vitrine">
+          <prod out="p255" em="capa,rand">
+          <prod out="p255" em="capa,rand">
+          <prod out="p255" em="capa,rand">
+          <prod out="p255" em="capa,rand">
+          <prod out="p255" em="capa,rand">
+          <prod out="p255" em="capa,rand">
+          <prod out="p255" em="capa,rand">
+          <prod out="p255" em="capa,rand">
+          <prod out="p255" em="capa,rand">
+          <prod out="p255" em="capa,rand">
+          <prod out="p255" em="capa,rand">
+          <prod out="p255" em="capa,rand">
+      </div>
+    </div>
+</div>
+<div class="clear"></div>
+
+<script src="<baseloja>htm/vitrine/jquery_slides.js"></script>
+
+<script>
+    $(function() {
+      $('#slides').slidesjs({
+        width: 1024,
+        height: 355,
+		play: {
+          active: true,
+          auto: true,
+          interval: 8000,
+          swap: false,
+		  effect: "fade"
+        },
+        navigation: {
+          effect: "fade"
+        },
+        pagination: {
+          effect: "fade"
+        },
+        effect: {
+          fade: {
+          speed: 1000
+          }
+        }
+      });
+    });
+</script>
