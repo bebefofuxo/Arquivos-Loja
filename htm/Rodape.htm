@@ -1,0 +1,485 @@
+<script>MostraDadosCesta();</script>
+
+<script type="text/javascript">
+
+var jahVerificadoDois = false;
+var xhrDois = new XMLHttpRequest();
+var timerRespostaDois;
+  
+function tratarRespostaDois () {
+  			
+    	if (xhrDois.readyState == 4 && xhrDois.status == 200) {
+              	
+        	
+              
+            if (xhrDois.responseText == "1")
+            {
+              	
+             	var divRespostaDois = document.getElementById('divRetornoBannerRosa');
+          		timerRespostaDois = setTimeout(esconderRespostaDois, 4000);
+            	divRespostaDois.innerHTML = "Você já está cadastrado!";
+                jahVerificadoDois=false;
+            }
+            else if (xhrDois.responseText == "2")
+            {
+              	var divRespostaDois = document.getElementById('divRetornoBannerRosa');
+          		timerRespostaDois = setTimeout(esconderRespostaDois, 4000);
+            	divRespostaDois.innerHTML = "Por favor, tente novamente.";
+                jahVerificadoDois=false;
+            }
+            else
+            {
+               jahVerificadoDois=true;
+               var formularioDois = document.querySelector(".form_osnews");
+               formularioDois.submit();
+            }
+         }
+         else
+         {
+         	jahVerificadoDois=false;
+         }
+
+}
+  
+function verificarUsuarioCadastradoDois() {
+  	
+  	var txtFieldDois = document.querySelector(".newsCampo2");
+  
+	if(jahVerificadoDois==true)
+	{
+		return true;
+    }
+  	
+  	xhrDois.onreadystatechange = tratarRespostaDois;
+    xhrDois.open("GET","https://fernandopastor.websiteseguro.com/phpmailer/enviarEmail.php?emailUsuario="+txtFieldDois.value,true);
+  
+  	
+    
+    xhrDois.send();
+  
+  	return false;
+}
+
+function esconderRespostaDois(){
+  var divRespostaDois = document.getElementById('divRetornoBannerRosa');
+  divRespostaDois.innerHTML = "";
+  clearTimeout(timerRespostaDois);
+}
+  
+function mostrarInfoDois(){
+  var divRespostaDois = document.getElementById('divRetornoBannerRosa');
+  divRespostaDois.innerHTML = "Gerando cupom. Aguarde...";
+  
+  
+}
+
+
+</script>
+
+<div class="gtr-banner"><banner 8></div>
+  
+<div id="gt-rodape1">
+<div class="gt-rodape">
+  <div class="gtr-bebe">
+    <div class="gt-left">
+      <div class="gtr-dica">
+        <div class="TitDica">O b&aacute;sico para o dia-a-dia do seu beb&ecirc;</div>
+        <div class="TxtDica">Roupas b&aacute;sicas e de alta qualidade, capazes de proporcionar o m&aacute;ximo de conforto. Nossa preocupa&ccedil;&atilde;o &eacute; a sua principal preocupa&ccedil;&atilde;o: o seu beb&ecirc;. Conte com a Beb&ecirc; Fofuxo, pois trabalhamos duro para satisfazer nossos clientes.</div>
+      </div>
+     <form name=FormNewsletter method=GET action="Newsletter.asp" onSubmit="return verificarUsuarioCadastradoDois();" class="form_osnews"/>
+     <input type="hidden" name="IDLoja" value="20368">
+     <input type="hidden" name="FormatoHTML" value="True">
+     <input type="hidden" name="EnviarAssinante" value="Enviar">
+      <div class="gtr-news">
+        <div class="Ganhe"><img src="<baseloja>images/Ganhe20.png" alt="Ganhe R$ 20,00" /></div>
+        <div class="gt-news1">
+          <div class="TitNews">Ganhe R$ 20,00 na 1&deg; compra!</div>
+          <div class="TxtNews">Cadastre seu email e receba o cupom de desconto.<br />(Insira o c&oacute;digo diretamente no carrinho de compras)</div>
+          <div class="TxtNewsP">* V&aacute;lido para compras acima de R$ 200,00<br />**Cupom de uso &uacute;nico e n&atilde;o cumulativo com outras promo&ccedil;&otilde;es</div>
+        </div>
+        <div class="gt-news2">
+          <input type="text" name="Email" class="newsCampo2" value="Seu e-mail" onFocus="if (this.value == 'Seu e-mail') {this.value='';}" onBlur="if (this.value == '') {this.value='Seu e-mail';}">
+          <input type="submit" name="ok" value="Obter Cupom" onClick="mostrarInfoDois();" class="newsBotao">
+        <div id="divRetornoBannerRosa"></div>  
+        </div>
+      </div>
+      </form>
+    </div>
+    <div class="gt-right">
+      <!--
+      <div class="gtr-facebook">
+       <iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FBeb%25C3%25AA-Fofuxo%2F641153695975900&amp;width=290&amp;height=290&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=false&amp;show_border=false" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:290px; height:290px;" allowTransparency="true"></iframe>
+      </div> -->
+    </div>
+    
+  </div>
+</div>
+</div>
+
+<div id="gt-rodape2">
+<div class="gt-rodape">
+<div class="gtr-nav">
+    <div class="rod1 faixa1">
+      <h4>Institucional</h4>
+      <ul>
+        <li><a href="/page,idloja,20368,arq,cSobre.htm,quem-somos">QUEM SOMOS</a></li>
+        <li><a href="/page,idloja,20368,arq,cPrivacidade.htm,politica-de-privacidade">POL&Iacute;TICA DE PRIVACIDADE</a></li>
+        <li><a href="/page,idloja,20368,arq,cSeguranca.htm,seguranca">SEGURAN&Ccedil;A</a></li>
+      </ul>
+    </div>
+    <div class="rod2 faixa1">
+      <h4>Suporte</h4>
+      <ul>
+        <li><a href="/page,idloja,20368,arq,cPagamento.htm,formas-de-pagamento">FORMAS DE PAGAMENTO</a></li>
+        <li><a href="/page,idloja,20368,arq,cComoComprar.htm,como-comprar">COMO COMPRAR</a></li>
+        <li><a href="/page,idloja,20368,arq,cTrocas.htm,trocas-e-devolucoes">TROCAS E DEVOLU&Ccedil;&Otilde;ES</a></li>
+        <li><a href="/page,idloja,20368,arq,cEntrega.htm,entrega">ENTREGA</a></li>
+        <li><a href="/page,idloja,20368,arq,cFreteGratis.htm,condicoes-frete-gratis">CONDI&Ccedil;&Otilde;ES - FRETE GR&Aacute;TIS</a></li>
+        <li><a href="/page,idloja,20368,arq,cComoUsarCupom.htm,como-usar-cupom">COMO USAR O CUPOM DE DESCONTO</a></li>
+        <!-- <li><a href="/page,idloja,20368,arq,cFaq.htm,faq">Faq</a></li> -->
+      </ul>
+    </div>
+    <div class="rod3 faixa1">
+      <h4>Redes sociais</h4>
+      <ul>
+        <li><a href="https://www.facebook.com/pages/Beb%C3%AA-Fofuxo/641153695975900" target="_blank" title="Facebook: nova janela"><img src="<baseloja>images/Facebook.png" alt="Facebook" border="0" align="absmiddle" /> FACEBOOK</a></li>
+        <li><a href="https://twitter.com/lojabebefofuxo" target="_blank" title="Twitter: nova janela"><img src="<baseloja>images/Twitter.png" alt="Twitter" border="0" align="absmiddle" /> TWITTER</a></li>
+      </ul>
+    </div>
+    <div class="rod4 faixa1">
+      <h4>Atendimento e Televendas</h4>
+      <ul>
+        <li><strong>(11) 4515-7761</strong></li>
+        <li>De segunda à sexta: 8h30 às 17h30</li>
+        <li><a href="mailto:atendimento@bebefofuxo.com.br">atendimento@bebefofuxo.com.br</a></li>
+      </ul>      
+    </div>
+    
+    <div class="rod5 faixa2">
+      <h4>Formas de Pagamento</h4>
+      <div><img src="<baseloja>images/Pagamentos.png" alt="Formas de Pagamento" /></div>
+    </div>
+    <div class="rod5P faixa2">
+      <h4>Formas de Pagamento</h4>
+      <div><img src="<baseloja>images/PagamentosP.png" alt="Formas de Pagamento" /></div>
+    </div>
+    <div class="rod6 faixa2">
+      <h4>Segurança</h4>
+      <div><img src="<baseloja>images/Comodo.svg" width="100" alt="Seu pedido com Segurança" title="Site Seguro e Autenticado pela Comodo"></div>
+      <div id="armored_website_03" style="margin-top:15px; overflow:hidden;">
+      <param id="aw_preload" value="true" />
+      </div>
+      <script type="text/javascript" src="//selo.siteblindado.com/aw.js"></script>
+    </div>
+  </div>
+  <div class="gtr-copy">
+   <p>BEBE FOFUXO COMERCIO DE ROUPAS INFANTIS LTDA | CNPJ - 13.043.380/0001-93 | Telefones - (11)4515-7761 | Email: <a href="mailto:atendimento@bebefofuxo.com.br">atendimento@bebefofuxo.com.br</a></p>
+   <p>A loja Bebê Fofuxo é especializada em roupas básicas para o seu bebê: body, mijão (culotes), shorts, camisetas, calças, tudo para seu bebê de até 2 anos.</p>
+  </div>
+</div>
+</div>  
+<a href="#top" id="voltartopo" class="anchorLink"><span>topo</span></a> 
+<script type="text/javascript">
+//Personalização dos botoes pagina de carrinho
+var sPag=document.location.href.toUpperCase();
+  
+  var isMobile = {
+    Android: function() {
+        return navigator.userAgent.match(/Android/i);
+    },
+    BlackBerry: function() {
+        return navigator.userAgent.match(/BlackBerry/i);
+    },
+    iOS: function() {
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+    },
+    Opera: function() {
+        return navigator.userAgent.match(/Opera Mini/i);
+    },
+    Windows: function() {
+        return navigator.userAgent.match(/IEMobile/i);
+    },
+    any: function() {
+        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+    }
+  };
+
+if(sPag.indexOf("ADDPRODUTO.ASP")>=0 || sPag.indexOf("ADDMULT")>=0) {
+try{
+  
+  fbq('track', 'AddToCart');
+  
+  //mostrar erro do carrinho 
+  
+  
+  
+  $(document).ready(function(){
+    
+    var arrayScripts = $("script:contains('setTimeout'):contains('document.Lista'):not(:contains('arrayScripts'))");
+  
+  if (arrayScripts.length > 0)
+  {
+    console.log("s");
+    var textFieldErro = arrayScripts[0].innerHTML;
+    textFieldErro = textFieldErro.replace('.focus();",500);',"");
+    textFieldErro = textFieldErro.replace('setTimeout("document.Lista.',"");
+    $("#"+textFieldErro).css("background-color","red");
+    $("#"+textFieldErro).css("color","white");
+    
+    $("#"+textFieldErro).on("change paste keyup", function(){
+      
+      $("#"+textFieldErro).css("background-color","white");
+      $("#"+textFieldErro).css("color","#006298");
+      
+    })
+    
+    $('html, body').animate({
+        scrollTop: $("#"+textFieldErro).offset().top - 100
+ }, 500);
+  }
+  else
+  {
+  	console.log("n");    
+  }
+    
+  });
+  
+  
+
+  
+  document.getElementById("FCCartRecalculateBut").innerHTML = "ATUALIZAR CARRINHO";
+  document.getElementById("FCCartBuyBut").innerHTML = "FINALIZAR PEDIDO";
+  document.getElementById("FCCartFreightSimulationBut").innerHTML = "CALCULAR FRETE";
+  document.getElementById("FCCartSmallFreightSimulationBut").innerHTML = "CALCULAR FRETE";
+  
+  if(document.getElementsByClassName("FCCartCupomError").length > 0)
+  {
+    alert(document.getElementsByClassName("FCCartCupomError")[0].innerHTML);
+  }
+  
+  if(isMobile.any() == null){
+    
+    var linhaBotoesCarrinho = document.getElementById("FCCartButtons");
+    var linhaCimaBotoesCarrinho = linhaBotoesCarrinho.cloneNode(true);
+    linhaCimaBotoesCarrinho.style.marginTop = "10px";
+    linhaCimaBotoesCarrinho.style.marginBottom = "20px";
+  
+    var divCarrinho = document.getElementById("idTabItensFC");
+  
+    divCarrinho.insertBefore(linhaCimaBotoesCarrinho, divCarrinho.firstChild);
+    
+    var tabela = document.getElementById("TabItens");
+    tabela.style.borderSpacing = "0px";
+    
+    var btnCupom = document.getElementById("FCCartCupomBut").cloneNode(true);
+    var txtCupom = document.getElementById("Cupom");
+    var tdCupom = document.getElementsByClassName("FCCartCupomInfo")[0];
+    
+    btnCupom.style.marginLeft = "10px";
+    
+    tdCupom.insertBefore(btnCupom, txtCupom.nextSibling);
+    
+    
+  }
+  else
+  {
+    var linhaBotoesCarrinho = document.getElementById("FCCartButtons");
+    
+    var linhaCimaBotoesCarrinho = linhaBotoesCarrinho.cloneNode(true);
+    var listaDeBotoes = linhaCimaBotoesCarrinho.childNodes[0];
+    listaDeBotoes.removeChild(listaDeBotoes.childNodes[0]);
+    listaDeBotoes.removeChild(listaDeBotoes.childNodes[0]);
+    
+    listaDeBotoes.childNodes[0].classList.add("btnFinalizarCima");
+  
+    var divCarrinho = document.getElementById("idTabItensFC");
+  
+    divCarrinho.insertBefore(linhaCimaBotoesCarrinho, divCarrinho.firstChild);
+    
+    var linhaTituloCelular = document.createElement("TR");
+    linhaTituloCelular.style.backgroundColor = "#1F92DC";
+    linhaTituloCelular.innerHTML = "<td colspan='4' class='EstTabPedidoTit FCCartItemTh' style='background-color:#1F92DC'><div style='width:100%; text-align:center'>Dados do pedido</span></td>";
+    
+    //document.getElementById("idTDFreightSimulationFC").style.width = "320px";
+    $("#FCCartSmallFreightSimulationBut").click(function(){
+      
+      var larguraTela = $("body").width();
+      if(larguraTela < 360)
+      {
+          $("#idFreightSimulationFC").css({left: 0});
+      	  $("#idTDFreightSimulationFC").width(larguraTela-10);
+      }
+      else
+      {		
+          var distanciaEsquerda = (larguraTela - 360)/2;
+          $("#idFreightSimulationFC").css({left: distanciaEsquerda});
+      }
+      
+      
+      
+    });
+
+    
+    
+    
+
+    var tabela = document.getElementById("TabItens");
+    tabela.style.borderSpacing = "0px";
+    
+    tabela.childNodes[0].insertBefore(linhaTituloCelular,tabela.childNodes[0].childNodes[0]);
+    
+  }
+  
+  
+
+}catch(e){}
+try{/*document.getElementById("TabBotoes").style.display="none";*/}catch(e){}
+
+}
+  
+
+function ComprarImg(){document.getElementsByName("Comprar")[1].click();}
+
+
+function fnGetShippingValuesDetalhesPedido(cepLocalPedido){
+
+  var sCEP=cepLocalPedido;
+  if(sCEP==""){
+    
+  }
+  else{
+    //qualquer IDProd
+    var sParamProd="&idproduto="+ "4650637";
+    //AjaxExecFC("/XMLShippingCEP.asp","IDLoja="+ FC$.IDLoja +"&cep="+ sCEP,false,fnprocessXMLCEPDetalhesPedido);
+    AjaxExecFC("/XMLShippingCEP.asp","IDLoja="+ IDLojaNum +"&cep="+ sCEP + sParamProd,false,fnprocessXMLCEPDetalhesPedido);
+  }
+}
+
+function fnprocessXMLCEPDetalhesPedido(obj){
+
+  var sShipping="";
+  var oShippingValues=divPrazoEntrega;
+  
+  var iErr=ReadXMLNode(obj,"err");if(iErr==null)return;
+  if(iErr!="0"){
+    oShippingValues.innerHTML="Erro ao calcular o prazo de entrega.<br><br>Entre em contato conosco em <strong>atendimento@bebefofuxo.com.br</strong> ou com a nossa central de atendimento: (11) 4515-7761";
+    return;
+  }
+  
+  
+  oShippingValues.innerHTML="";
+  
+  
+  var iOpt=ReadXMLNode(obj,"OptQt");
+  
+  for(var i=1;i<=iOpt;i++){
+    var OptName=ReadXMLNode(obj,"Opt"+ i +"Name");
+    
+    var nomeServico = ReadXMLNode(obj,"Opt"+ i +"Name");
+    if (nomeServico == tipoEntrega)
+    {
+        var qtdeExtraDias = 0;
+    
+        if (nomeServico == "Encomenda PAC")
+        {
+            qtdeExtraDias = 3;
+        }
+        else
+        {
+            qtdeExtraDias = 3;
+        }
+    
+        var prazo = ReadXMLNode(obj,"Opt"+ i +"Obs");
+    
+        //apagar prazo manual
+        var n = prazo.indexOf("(");
+        var m = prazo.indexOf(")");
+        prazo = prazo.replace(prazo.substring(n, m+1), "");
+    
+        n = prazo.indexOf("(");
+        m = prazo.indexOf(")");
+        if (m == -1 || n == -1)
+        {
+    	    var textoFinal = ReadXMLNode(obj,"Opt"+ i +"Obs");
+      	    if (textoFinal != "Frete Gratuito")
+            {
+                //textoFinal = prazo + "(área com entrega restrita)";
+              	textoFinal = prazo + "(12 dias úteis)";
+              
+            }
+        }
+        else
+        {
+    	    var semParenteses = prazo.substring(n+1, m);
+    	    var array = semParenteses.split(" ");
+    	    var dias = parseInt(array[0]) + qtdeExtraDias;
+    	    var diasUteis = "("+dias+" dias úteis)";
+    	    n = prazo.indexOf("(");
+    	    m = prazo.indexOf(")");
+    	    prazo = prazo.replace(prazo.substring(n, m+1), "");
+    	    var textoFinal = prazo + diasUteis;
+        }
+    }
+
+    sShipping = textoFinal;
+    
+  }
+  
+  
+  var nnn = sShipping.indexOf("(");
+  var mmm = sShipping.indexOf(")");
+  sShipping = sShipping.substring(nnn+1, mmm);
+  
+  if(sShipping.indexOf("dias") != -1)
+  {
+    divPrazoEntrega.innerHTML = "Prazo estimado de entrega: <strong>" + sShipping + "</strong> a partir da postagem do pedido (o serviço de entrega é realizado pelos Correios e está sujeito a atrasos)";
+  }
+  else
+  {
+    //divPrazoEntrega.innerHTML = "Provavelmente, o seu endereço de entrega está temporariamente como <strong>área de entrega restrita</strong> para os Correios. Existe a possibilidade de você precisar retirar seu pedido na agência dos Correios mais próxima de sua casa.<br><br>Qualquer dúvida, entre em contato com a nossa central de atendimento: (11) 4515-7761";
+    divPrazoEntrega.innerHTML = "Prazo estimado de entrega: <strong>12 dias úteis</strong> a partir da postagem do pedido (o serviço de entrega é realizado pelos Correios e está sujeito a atrasos)";
+  }
+
+  oShippingValues.style.display="block";
+}
+
+var tipoEntrega;
+var divPrazoEntrega;
+
+//retirar observação cadastrada Cidade (x dias) (prazo retornado pelos Correios)
+$("#ObsFreteFC").remove();
+
+  
+if ($("#idRecoverOrderFC").length && $("#idTxtSit2OrderFC").text() != "Cancelado")
+{
+  var textoEnvio = $(".EstTabPedidoFrete").text();
+  
+  var n = textoEnvio.indexOf("(");
+  var m = textoEnvio.indexOf(")");
+  var mP = textoEnvio.indexOf("P");
+  
+  tipoEntrega = textoEnvio.substring(n+1, m);
+  
+  //console.log(tipoEntrega);
+  
+  var cepCliente = textoEnvio.substring(mP+1, n);
+  cepCliente = cepCliente.replace(" ", "");
+  cepCliente = cepCliente.replace(" ", "");
+  //console.log(cepCliente);
+  
+  divPrazoEntrega = document.createElement("div");
+  
+  divPrazoEntrega.style.marginTop = "20px";
+  divPrazoEntrega.style.fontSize = "15px";
+  divPrazoEntrega.style.color = "black";
+  divPrazoEntrega.innerHTML = "Calculando prazo de entrega. Aguarde...";
+  $( "#idTxtIntroTrackFC" ).append(divPrazoEntrega);
+  fnGetShippingValuesDetalhesPedido(cepCliente);
+}
+
+</script>
+
+
+<style type="text/css">
+.EstPassoCompraDiv{display:none}
+</style>
