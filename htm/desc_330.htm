@@ -1,0 +1,36 @@
+<br><br>
+Body liso manga longa, fabricado com plush 67% algodão / 33% poliéster.
+<br><br>
+<script>
+var isMobile = {
+    Android: function() {
+        return navigator.userAgent.match(/Android/i);
+    },
+    BlackBerry: function() {
+        return navigator.userAgent.match(/BlackBerry/i);
+    },
+    iOS: function() {
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+    },
+    Opera: function() {
+        return navigator.userAgent.match(/Opera Mini/i);
+    },
+    Windows: function() {
+        return navigator.userAgent.match(/IEMobile/i);
+    },
+    any: function() {
+        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+    }
+  };
+  
+  if(isMobile.any() == null){
+   	 document.write("<a href='../lojas/00020368/images/guiaMedidas.jpg' id='os_imglight'><img src='../lojas/00020368/images/layout/bt_guiaDeMedidas.gif' style='visibility: visible;'></a>");
+  }
+  else{
+    
+    document.write("<a href='/page,idloja,20368,arq,guiamedidas.htm,guia-medidas'><img src='../lojas/00020368/images/layout/bt_guiaDeMedidas.gif' style='visibility: visible;'></a>");
+    
+  }
+
+</script>
+
