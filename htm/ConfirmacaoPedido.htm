@@ -1,0 +1,112 @@
+<div style="margin-top:15px"><a href="home.asp?idloja=20368">Clique aqui</a> e volte para home.</div>
+<style>
+#idTxtPedConfirmadoFC{height:30px;padding:10px;background-color:#007dd4;color:#fcfcfc;font-size:14pt;}
+#idDadosPagtoFC{font-size:9pt;}
+#EstNomePagto{color:#555555;font-size:11pt;font-weight:bold;}
+#PassosCompra,.idTxtPrintFC{display:none;}
+</style>
+
+<!--
+<!-- Facebook Pixel Code
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','//connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '405960669614611');
+fbq('track', "PageView");
+fbq('track', 'Purchase', {value: '0.00', moeda: 'USD'});</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=405960669614611&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
+
+<script>fbq('track', 'Purchase', {value: '0.00', currency: 'USD'});</script>
+
+
+<script>
+
+  var isMobile = {
+    Android: function() {
+        return navigator.userAgent.match(/Android/i);
+    },
+    BlackBerry: function() {
+        return navigator.userAgent.match(/BlackBerry/i);
+    },
+    iOS: function() {
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+    },
+    Opera: function() {
+        return navigator.userAgent.match(/Opera Mini/i);
+    },
+    Windows: function() {
+        return navigator.userAgent.match(/IEMobile/i);
+    },
+    any: function() {
+        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+    }
+  };
+
+//Personalização dos botoes e texto da pagina final
+var sPag=document.location.href.toUpperCase();
+  
+if(sPag.indexOf("CHECKOUT.ASP")>=0) 
+{
+  
+  if(isMobile.any() != null)
+  {
+      $('html, body').animate({
+         scrollTop: 230
+      }, 1000);
+  }
+  
+  try{
+  	var linhaTextoBoleto = document.getElementById("idTxtBoletoFC");
+    linhaTextoBoleto.innerHTML = "SEU PEDIDO SERÁ ENVIADO <u><b>SOMENTE APÓS O PAGAMENTO</b></u> DO BOLETO BANCÁRIO. (O boleto <u><b>NÃO</b></u> será enviado pelo Correio).<br><br>A data de vencimento é de 2 dias corridos após o fechamento do pedido. Após essa data, o pedido será automaticamente cancelado em caso de não-pagamento.";
+    
+    
+    var ehBoleto=linhaTextoBoleto.innerHTML.toUpperCase();
+    if(ehBoleto.indexOf("BOLETO")>=0)
+    {
+      var linhaTextoBoletoDois = document.getElementById("idTxtPaymentOpenFC");
+      linhaTextoBoletoDois.innerHTML = "<p><span class='EstChkTextoContinuar'><b>CLIQUE NO BOTÃO ABAIXO</b> para <b>VISUALIZAR</b> e <b>EFETUAR O PAGAMENTO DO BOLETO:</span></p>";
+      
+      var botaoPagamento = document.getElementById("idBotPaymentOpenFC");
+      botaoPagamento.innerHTML = "<input type='button' name='Continuar' value='Efetuar pagamento' onclick='MostraBoleto(true)' class='BotChkPaymentContinue'>";
+    }
+    
+    
+    
+    
+    
+  }catch(e){}
+}
+
+  
+  
+var iFormaPagto="<IDFormaPagamento>";
+
+if(iFormaPagto=="3"){ //Cartão de crédito
+  var sFormaPagto="<FormaPagamento> (<TipoCartao>)"
+  //**setTimeout("document.getElementById('idDadosPagtoTitFC').innerHTML='<td class=EstTabTopo colspan=2 align=center>Forma de pagamento</td>';",100); //Altera titulo da parte inferior dos dados para pagamento
+  }
+  else{
+  var sFormaPagto="<FormaPagamento>"
+  //**setTimeout("document.getElementById('idDadosPagtoTitFC').style.display='none';",100); //Altera titulo da parte inferior dos dados para pagamento
+}
+
+/*
+//**var sDadosPagto="<br><br><table width=97% align=center class=EstTabPedido><tr height=25><td class=EstTabPedidoTit align=center>Dados para pagamento</td></tr><tr><td align=center><br><span id=EstNomePagto>"+ sFormaPagto +"</span><br><br>"+ document.getElementById('idDadosPagtoFC').innerHTML +"</td></tr></table>"; //Instruções e botão para pagamento
+var sBannerEbit="";  //Banner do e-bit
+
+setTimeout("document.getElementById('idDadosPagtoFC').innerHTML='';",10); //Remove da parte inferior os dados para pagamento
+//**setTimeout("document.getElementById('idTopoConfirmacaoFC').innerHTML=sDadosPagto+sBannerEbit+'<br><br><span class=Titulos>Informações do seu pedido:</span>';",10);  //Insere no topo da página de pedido confirmado as instruções para pagamento + banner do ebit
+setTimeout("document.getElementById('idDadosPagtoFC').innerHTML='';",10);
+  */
+  
+_dAutomationGtmCloseTimer("www.bebefofuxo.com.br", "bh3P-58My0NWFw==");
+
+</script>
+
