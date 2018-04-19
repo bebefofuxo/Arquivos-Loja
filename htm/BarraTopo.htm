@@ -1,0 +1,281 @@
+<link rel="stylesheet" href="<baseloja>htm/layout.css" type="text/css" media="all">
+<link rel="stylesheet" href="<baseloja>htm/jquery_ui.css">
+<script type="text/javascript">
+// globais
+var pdet  = "";
+var pdet2 = "";
+var pdet3 = "";
+var pdet4 = "";
+var exibeCart = "";
+var IDLoja='<IDLoja>';
+var IDLojaGrid='<IDLoja>'; 
+var IDLojaNum='<IDLojaNum>';
+var sCaminhoImagens='<baseloja>'+'images/';
+var sCaminhoProds='<baseloja>'+'prod/';
+var IDLojaAS='<IDLoja>';
+var CaminhoProdAS='<baseloja>prod/'; 
+var g1='5';
+var g2='3';
+var g3='5';
+var g4='3';
+</script>
+<script src="<baseloja>htm/JurosParcelas.js" type="text/javascript"></script>
+<script src="<baseloja>htm/LojaLib.js" type="text/javascript"></script>
+<script src='/jquery-1.8.2.min.js' type="text/javascript"></script>
+<script type="text/javascript" src="<baseloja>htm/popnews/jQueryCookie.js"></script>
+<script type="text/javascript" src="<baseloja>htm/popnews/popnews.js"></script>
+<script src='/jquery-ui-1.9.2.custom.min.js' type="text/javascript"></script>
+<script src="<baseloja>htm/autosuggest.js" type="text/javascript"></script>
+<script src="<baseloja>htm/js/OS_All.js" type="text/javascript"></script>
+
+<!--[if IE]>
+<style type="text/css">
+.ui-autocomplete-category{margin-top: -2px}
+.anchorLink {position: absolute;}
+</style>
+<![endif]-->
+
+<!-- menu responsivo -->
+<link href="<baseloja>htm/menuresp/megamenu.css" rel="stylesheet">
+<script type="text/javascript" src="<baseloja>htm/menuresp/jquery1101min.js"></script>
+<script type="text/javascript" src="<baseloja>htm/menuresp/megamenu.js"></script>		
+<script>
+	jQuery3(document).ready(function(){
+		$(".megamenu").megamenu();
+	});
+</script>	
+<!-- menu responsivo -->
+
+
+<script>
+jQuery(document).ready(function() {	
+if(FC$.Page=="Register" && FC$.Step=="Registration") {	
+jQuery('#idRegisterFC tr:eq(1)').hide();
+jQuery('#idRegisterFC').addClass('pass2');
+}	
+});
+</script>	
+
+<!-- Google Fonts -->
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+
+
+<div class="carrega">Aguarde...</div>
+
+<a name="top" id="top"></a>
+
+<div id="os_topbar">
+  <div class="top_int">
+    <a href="/home.asp?idloja=20368" class="logo"></a>
+    <div class="busca">
+      <form name="fBusca" method="GET" action="ListaProdutos.asp?IDLoja=20368">
+        <input type="hidden" name="IDLoja" value="20368">
+        <input type="hidden" name="Digitada" value="True">
+        <input name="Texto" type="text" id="autocomplete"  title="Digite aqui o que procura" value="Digite aqui o que procura" accesskey="0" class="gtf-campo" onfocus="if (this.value == 'Digite aqui o que procura') {this.value='';}" onblur="if (this.value == '') {this.value='Digite aqui o que procura';}" />
+        <input type="submit" name="ok" value="" class="gtf-botao">
+      </form>
+    </div>
+    <div class="top-cart">Item <span id="QtdItensCesta2">0</span> | <span id="ValorItensCesta2"></span></div>
+    <a href="/addproduto.asp?idloja=20368" class="carrinho"></a>
+  </div>
+</div>
+
+<div class="gt-topo"> 
+  <div id="topo1">
+    <div class="gt-telefone"><img src="<baseloja>images/Ic_Fone.png" alt="Telefone" align="absmiddle"> <b>CENTRAL DE ATENDIMENTO: </b><strong>(11) 4515-7761</strong></div>
+  </div>
+  <div id="topo2">
+    <div class="gt-menuloja">
+      <ul>
+        <script type="text/javascript">
+       	if(''!='<NomeCliente>') { document.write('<li class="first"><a href="/track.asp?idloja=20368">Meus Pedidos</a></li>') }
+       	else { document.write('<li class="first"><a href="/cadastro.asp?idloja=20368">Login</a></li><li class="first"><a href="/track.asp?idloja=20368">Meus Pedidos</a></li>') }
+        </script>
+        <li><a href="/cadastro.asp?idloja=20368">Minha Conta</a></li>
+      </ul>
+    </div>
+  </div>
+  <div id="topo3"><a href="/home.asp?idloja=20368"><img src="<baseloja>images/BebeFofuxo.png" alt="Bebe Fofuxo" border="0"></a></div>
+  <div id="topo4">
+    <div class="gt-busca">
+      <form name="fBusca" method="GET" action="ListaProdutos.asp?IDLoja=20368" id="autocomplete-form">
+        <input type="hidden" name="IDLoja" value="20368">
+        <input type="hidden" name="Digitada" value="True">
+        <input name="Texto" type="text" id="autocomplete"  title="Digite aqui o que procura" value="Digite aqui o que procura" accesskey="0" class="gtf-campo"  onfocus="if (this.value == 'Digite aqui o que procura') {this.value='';}" onblur="if (this.value == '') {this.value='Digite aqui o que procura';}" />
+        <input type="submit" name="ok" value="" class="gtf-botao">
+      </form>
+    </div>
+  </div>
+  <div id="topo5">
+    <div class="gt-cart">
+    <a href="/addproduto.asp?idloja=20368" title="Meu Carrinho">
+    <img src="<baseloja>images/Carrinho.png" alt="Meu Carrinho" border="0" align="left">
+    <div class="gt-cart-txt">
+    <strong>Meu Carrinho</strong>
+    Item <span id="QtdItensCesta">0</span> | <span id="ValorItensCesta"></span>
+    </div>
+    </a>
+    </div>
+  </div>
+  
+</div>
+
+<!-- Menu Topo 1 -->
+<div id="MenuTopResp1">
+  <div class="gt-categorias" id="menuos">    
+    <ul class="navigation">      
+      <li class="pai"><a href="/prod,IDLoja,20368,IDCategoria,167570,mijao-culote" class="pai"><span class="icon"></span>Mijão (Culote)</a>
+        <ul>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,229423,mijao-culote-com-pe">Com Pé</a></li>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,229424,mijao-culote-sem-pe">Sem Pé</a></li>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,229425,mijao-culote-vira-pe">Vira Pé</a></li>
+        </ul>
+      </li>
+      <li class="pai"><a href="/prod,IDLoja,20368,IDCategoria,167571,body" class="pai" style="padding-left: 16px; padding-right:16px"><span class="icon"></span>Body</a>
+        <ul>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,229427,body-manga-curta">Manga Curta</a></li>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,229426,body-manga-longa">Manga Longa</a></li>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,229428,body-regata">Regata</a></li>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,278449,body-com-saia">Com Saia</a></li>
+        </ul>
+      </li>
+      <li class="pai"><a href="/prod,IDLoja,20368,IDCategoria,225553,camiseta" class="pai"><span class="icon"></span>Camiseta</a>
+        <ul>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,229430,camiseta-manga-curta">Manga Curta</a></li>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,229429,camiseta-manga-longa">Manga Longa</a></li>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,229431,camiseta-regata">Regata</a></li>
+        </ul>
+      </li>
+      <li class="pai"><a href="/prod,IDLoja,20368,IDCategoria,168823,shorts" class="pai"><span class="icon"></span>Shorts</a>
+        <ul>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,229432,shorts-com-punho">Com Punho</a></li>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,229433,shorts-sem-punho">Sem Punho</a></li>
+        </ul>      
+      </li>
+      <li class="pai"><a href="/prod,IDLoja,20368,IDCategoria,193661,calca" class="pai"><span class="icon"></span>Calça</a>
+        <ul>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,229434,calca-com-punho">Com Punho</a></li>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,229435,calca-sem-punho">Sem Punho</a></li>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,229556,calca-legging">Legging</a></li>
+        </ul>
+      </li>
+      <li class="pai"><a href="/prod,IDLoja,20368,IDCategoria,261660,macacao" class="pai"><span class="icon"></span>Macacão</a>
+        <ul>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,274821,macacao-manga-curta">Manga Curta</a></li>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,261661,macacao-manga-longa">Manga Longa</a></li>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,278189,macacao-regata">Regata</a></li>
+        </ul>
+      </li>
+        <li class="pai"><a href="/prod,IDLoja,20368,IDCategoria,276043,saidamaternidade" class="pai" style="text-align: center; line-height: 15px; width: 80px; padding-top: 6px; padding-bottom: 20px;">Saída Maternidade</a>
+      <li class="pai"><a href="/prod,IDLoja,20368,IDCategoria,265175,pijama" class="pai">Pijama</a>
+      <li class="pai"><a href="/prod,IDLoja,20368,IDCategoria,278897,calcado" class="pai" style="text-align: center; line-height: 15px; width: 57px;  padding-top: 6px; padding-bottom: 20px;">Calçado e Meia</a>
+        <ul>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,278898,tenis">Tênis</a></li>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,281900,sandalia">Sandália</a></li>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,290214,sapatilha">Sapatilha</a></li>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,280485,meia">Meia</a></li>
+        </ul>
+      </li>
+      <!--<li class="last pai"><a href="/prod,IDLoja,20368,IDCategoria,177253,kits" class="pai"><span class="icon"></span>Kits</a>
+        <ul>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,241251,kits-inverno">Inverno</a></li>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,229436,kits-maternidade">Maternidade</a></li>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,229437,kits-bebe">Bebê</a></li>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,230771,kits-bebe-completo">Bebê Completo</a></li>       
+        </ul>
+      </li>-->
+      <!--<li class="last pai" style="float: right;"><a href="/prod,IDLoja,20368,IDCategoria,177253,kits" class="pai" style="padding-right:32.5px;"><span class="icon"></span>Promoção</a>
+        <ul>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,241251,kits-inverno">Liquidação</a></li>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,229436,kits-maternidade">Pacotes</a></li>      
+        </ul>
+      </li>-->
+      <li class="pai"><a href="/prod,IDLoja,20368,IDCategoria,286479,acessorios" class="pai"><span class="icon"></span>Acessórios</a>
+        <ul>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,286480,toalha-de-boca">Toalha de boca</a></li>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,286481,babador">Babador</a></li>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,286482,fralda">Fralda</a></li>
+        </ul>
+      </li>
+      <li style="background-color:#ff9e2a" class="last pai laranja"><a href="/page,idloja,20368,arq,promocao.htm,promocao" class="pai laranja" style="padding-right: 16px; padding-left: 16px">Outlet</a>
+        
+      </li>
+    </ul>
+  </div>
+</div>
+  
+<div id="MenuTopResp2" class="content">
+  <ul class="megamenu">
+      <li class="blue"><a href="/prod,IDLoja,20368,IDCategoria,167570,mijao-culote">Mijão (Culote)</a>
+        <ul class="dropdown">
+          <li><a href="/prod,IDLoja,20368,IDCategoria,229423,mijao-culote-com-pe">Com Pé</a></li>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,229424,mijao-culote-sem-pe">Sem Pé</a></li>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,229425,mijao-culote-vira-pe">Vira Pé</a></li>
+        </ul>
+      </li>
+      <li class="blue"><a href="/prod,IDLoja,20368,IDCategoria,167571,body">Body</a>
+        <ul class="dropdown">
+          <li><a href="/prod,IDLoja,20368,IDCategoria,229427,body-manga-curta">Manga Curta</a></li>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,229426,body-manga-longa">Manga Longa</a></li>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,229428,body-regata">Regata</a></li>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,278449,body-com-saia">Com Saia</a></li>
+        </ul>
+      </li>
+      <li class="blue"><a href="/prod,IDLoja,20368,IDCategoria,225553,camiseta">Camiseta</a>
+        <ul class="dropdown">
+          <li><a href="/prod,IDLoja,20368,IDCategoria,229430,camiseta-manga-curta">Manga Curta</a></li>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,229429,camiseta-manga-longa">Manga Longa</a></li>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,229431,camiseta-regata">Regata</a></li>
+        </ul>
+      </li>
+      <li class="blue"><a href="/prod,IDLoja,20368,IDCategoria,168823,shorts">Shorts</a>
+        <ul class="dropdown">
+          <li><a href="/prod,IDLoja,20368,IDCategoria,229432,shorts-com-punho">Com Punho</a></li>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,229433,shorts-sem-punho">Sem Punho</a></li>
+        </ul>      
+      </li>
+      <li class="blue"><a href="/prod,IDLoja,20368,IDCategoria,193661,calca">Calça</a>
+        <ul class="dropdown">
+          <li><a href="/prod,IDLoja,20368,IDCategoria,229434,calca-com-punho">Com Punho</a></li>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,229435,calca-sem-punho">Sem Punho</a></li>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,229556,calca-legging">Legging</a></li>
+        </ul>
+      </li>
+      <li class="blue"><a href="/prod,IDLoja,20368,IDCategoria,261660,macacao">Macacão</a>
+        <ul class="dropdown">
+          <li><a href="/prod,IDLoja,20368,IDCategoria,274821,macacao-manga-curta">Manga Curta</a></li>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,261661,macacao-manga-longa">Manga Longa</a></li>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,278189,macacao-regata">Regata</a></li>
+        </ul>  
+      </li>
+      <li class="blue"><a href="/prod,IDLoja,20368,IDCategoria,265175,macacao">Pijama</a>
+        
+      </li>
+      <li class="blue"><a href="/prod,IDLoja,20368,IDCategoria,276043,saidamaternidade">Saída Maternidade</a>
+        
+      </li>
+      <li class="blue"><a href="/prod,IDLoja,20368,IDCategoria,278897,calcado">Calçado e Meia</a>
+        <ul class="dropdown">
+          <li><a href="/prod,IDLoja,20368,IDCategoria,278898,tenis">Tênis</a></li>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,281900,sandalia">Sandália</a></li>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,290214,sapatilha">Sapatilha</a></li>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,280485,meia">Meia</a></li>
+        </ul>
+      
+      </li>
+      <li class="blue"><a href="/prod,IDLoja,20368,IDCategoria,286479,acessorios">Acessórios</a>
+        <ul class="dropdown">
+          <li><a href="/prod,IDLoja,20368,IDCategoria,286480,toalha-de-boca">Toalha de boca</a></li>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,286481,babador">Babador</a></li>
+          <li><a href="/prod,IDLoja,20368,IDCategoria,286482,fralda">Fralda</a></li>
+        </ul>  
+      </li>
+      <li class="orange"><a href="/page,idloja,20368,arq,promocao.htm,promocao">Outlet</a></li>
+  </ul>
+</div>
+
+<!--pitbar-->
+<div class="gt-pitbar">
+  <div class="barra1"><a href="/page,idloja,20368,arq,cSobre.htm,quem-somos"><img src="<baseloja>images/barraMenorPreco.png" alt="Menor Preço do Brasil" border="0" /></a></div>
+  <div class="barra2"><a href="/page,idloja,20368,arq,cFreteGratis.htm,condicoes-frete-gratis"><img src="<baseloja>images/barraFreteGratis.png" alt="Condições Frete Grátis" border="0" /></a></div>
+</div>
