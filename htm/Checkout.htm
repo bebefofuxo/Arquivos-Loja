@@ -1,0 +1,532 @@
+<style>
+/*ajusta tamanho pagamento cartão*/
+#idChkCCIntFC{width:auto;margin-top:10px;}
+#idChkCCIntFC #P2ccMesExp {margin-left:10px; font-size:12px;}
+#idTabFormaPagtoFC .smSelect {font-size:12px;}
+</style>
+
+
+<div class="FCCheckoutLogin"><Login></div>
+
+<div class="FCCheckoutMain">  
+  <div id="idChkTopFC" class="FCChkOrderConfirmationFloat"><OrderConfirmation></div>  
+  <div id="idChkCol1FC" class="FCRegisterChk"><Register></div>
+  <div id="idChkCol2FC" class="FCFreightChk">
+      <span id="idChkIniCol2FC"></span>
+      <div id="idChkTagsCol2FC"><OrderCompletion><Freight><Payment></div>
+  </div>
+  <div id="idChkCol3FC" class="FCCartChk"><Cart></div>
+  <div id="idChkBottomFC" ></div>
+</div>
+
+<script>
+
+fbq('track', 'InitiateCheckout');
+
+  var isMobile = {
+    Android: function() {
+        return navigator.userAgent.match(/Android/i);
+    },
+    BlackBerry: function() {
+        return navigator.userAgent.match(/BlackBerry/i);
+    },
+    iOS: function() {
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+    },
+    Opera: function() {
+        return navigator.userAgent.match(/Opera Mini/i);
+    },
+    Windows: function() {
+        return navigator.userAgent.match(/IEMobile/i);
+    },
+    any: function() {
+        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+    }
+  };
+  
+
+function ajusteFrete()
+{
+  var ac = $(".EstTabPedidoFrete");
+  ac[0].innerHTML = "";
+  
+  var count_elements = $("#idTabFreteOptFC input[type='radio']").size();
+  //console.log(count_elements);
+  
+  if(count_elements > 0)
+  {
+      $("#idTabFreteOptFC input[type='radio']:checked").each(function() {
+        var idVal = $(this).attr("id");
+    
+      var textosFrete = $("label[for='"+idVal+"']").children();
+        
+      var ac = $(".EstTabPedidoFrete");
+    
+      var tipoFrete = textosFrete[0].innerHTML.replace(":", "");
+    
+      var s1 = "Envio: CEP ";
+      var s2 = F$.CEPEnvio;
+      var s3 = "<br>(";
+      var s4 = tipoFrete;
+      var s5 = ")<br><span class='smText'>";
+      var s6 = textosFrete[3].innerHTML
+      var s7 = "</span> &nbsp; Frete:";
+    
+      var textFreteFinal = s1 + s2 + s3 + s4 + s5 + s6 + s7;
+    
+      ac[0].innerHTML = textFreteFinal;
+    
+    
+    
+    
+    });
+  }
+  else
+  {
+      $("#idTabFreteOptFC label").each(function() {
+      var textosFrete = $(this).children();
+        
+      var ac = $(".EstTabPedidoFrete");
+    
+      var tipoFrete = textosFrete[0].innerHTML.replace(":", "");
+    
+      var s1 = "Envio: CEP ";
+      var s2 = F$.CEPEnvio;
+      var s3 = "<br>(";
+      var s4 = tipoFrete;
+      var s5 = ")<br><span class='smText'>";
+      var s6 = textosFrete[3].innerHTML
+      var s7 = "</span> &nbsp; Frete:";
+    
+      var textFreteFinal = s1 + s2 + s3 + s4 + s5 + s6 + s7;
+    
+      ac[0].innerHTML = textFreteFinal;
+    
+    
+    
+    
+    });
+  }
+  
+  
+    
+}
+
+function alertaEntregaRestrita()
+{
+  alert("Pode ser que seu pedido demore um pouquinho mais para ser entregue ou pode ser necessário você ir retirar o seu pedido na agência dos Correios mais próxima.\n\nPara maiores explicações entre em contato conosco: atendimento@bebefofuxo.com.br");
+} 
+  
+function avisoAreaRestrita()
+{
+  var elemAviso = document.createElement('div');
+  //elemAviso.innerHTML = "<strong>ATENÇÃO: </strong> No momento, seu CEP está como área de entrega restrita pelos os Correios e isso pode ocasionar atraso na entrega do seu pedido. Para maiores explicações entre em contato conosco: atendimento@bebefofuxo.com.br";
+  elemAviso.innerHTML = "*área com entrega restrita - <a href='javascript:alertaEntregaRestrita();'>saiba mais</a>";
+  elemAviso.style.backgroundColor = "#fff5d5";
+  elemAviso.style.color = "#976b00";
+  elemAviso.style.padding = "1px 1px 1px 1px";
+  elemAviso.style.margin = "0px 0px 3px 0px";
+  elemAviso.style.lineHeight = "1.5";
+  elemAviso.style.fontSize  = "11px";
+  
+  var elemTabelaFrete = document.getElementById('idTabFreteOptFC');
+  
+  var superTD = elemTabelaFrete.parentNode;
+  //superTD.insertBefore(elemAviso,elemTabelaFrete);
+  superTD.appendChild(elemAviso);
+}
+  
+function avisoOlimpiadas()
+{
+  var cepCliente = $("#P2CEP").val();
+  	if (cepCliente)
+  	{
+      	cepCliente = cepCliente.replace(/-/g,'');
+      	cepCliente = cepCliente.replace(/ /g,'');
+
+  
+      	if(cepCliente.length == 8 && parseInt(cepCliente) >= 20000000 && parseInt(cepCliente) <= 26600000)
+      	{
+        	console.log("Região metropolitana do Rio de Janeiro");
+          
+            if(isMobile.any() != null)
+            {
+              alert("Ops! Atraso nas entregas dos pedidos.\n\nEm função das Olimpíadas, as entregas para a região metropolitana do Rio de Janeiro estão sujeitas a atraso.\nDe qualquer forma, não deixe de realizar sua compra! A qualquer momento você poderá acompanhar o andamento de seu pedido e, caso precise, temos uma equipe pronta para te ajudar:\n\natendimento@bebefofuxo.com.br");
+            }
+            else
+            {
+              var link = document.createElement("a");
+  			  link.href = "../lojas/00020368/images/avisoCorreiosOlimpiadas.jpg";
+  			  link.id = "os_imglight";
+  			  link.display = "none";
+  			  document.body.appendChild(link);
+  			  jQuery("a#os_imglight").fancybox();
+  
+  			  setTimeout(function(){ document.getElementById('os_imglight').click(); }, 800);
+              
+              $('html, body').animate({
+                scrollTop: 0
+              }, 500);
+            }
+
+      	}
+  	}
+}
+
+  
+function FuncChkRegisterEnd(){
+  
+  var emailCliente = "";
+  if (document.getElementById('P2Email'))
+  {
+    emailCliente = document.getElementById('P2Email').value;
+  }
+
+  
+  
+  var dadosCarrinho = localStorage.getItem("sacola");
+  
+  
+  var arrayItens = dadosCarrinho.split("|");
+  
+  var prods = [];
+  
+  for (var p = 0; p < arrayItens.length - 1; p++)
+  {
+      var produto = arrayItens[p].split(";");
+    
+    
+      var dict ={"amount":"1","id":produto[0],"image":produto[1],"link":produto[5],"name":produto[2],"description":produto[3],"unitary_value":produto[4]};
+  
+  
+    
+      prods.push(dict);
+    
+  }
+  
+  if(emailCliente != "" && prods.length > 0)
+  {
+      //console.log(prods);
+      _dAutomationGtmAddTimer("www.bebefofuxo.com.br", "bh3P-58My0NWFw==", {"cmp1":emailCliente,"cmp2":"","cart_data":prods});
+      localStorage.setItem("sacola","");
+  }
+  
+  
+  
+  
+  if(F$.Step==1){
+    //========== RETIRAR CEP OPCIONAL
+    var elemCPFOpcional = document.getElementById('idTxtCPFFC');
+    elemCPFOpcional.style.display = "none";
+    //==========
+  }
+  
+  if(F$.Step==2){
+    window.onscroll=null;
+  }
+  
+  //avisoOlimpiadas();
+  
+  /*
+  //aviso olimpiadas
+  $("#P2CEP").blur(function(){
+    
+    avisoOlimpiadas();
+     
+  });
+  */
+  
+  var areaRestrita = false;
+  
+  $("[id=idTxtObsCEPFC]").each(function( index ) {
+    
+    var array = $("[id=idTxtNomeCEPFC]").toArray();
+    var nomeServico = array[index].innerText;
+    var qtdeExtraDias = 0;
+    
+    if (nomeServico == "Encomenda PAC:")
+    {
+        qtdeExtraDias = 3;
+    }
+    else
+    {
+        qtdeExtraDias = 3;
+    }
+    
+    var prazo = $( this ).text();
+    //apagar prazo manual
+    var n = prazo.indexOf("(");
+    var m = prazo.indexOf(")");
+    prazo = prazo.replace(prazo.substring(n, m+1), "");
+    n = prazo.indexOf("(");
+    m = prazo.indexOf(")");
+    if (m == -1 || n == -1)
+    {
+        
+    	var textoFinal = $( this ).text();
+      	if (textoFinal != "Frete Gratuito")
+        {
+            areaRestrita = true;
+            //textoFinal = prazo + "(área com entrega restrita)";
+          textoFinal = prazo + "(12 dias úteis)";
+        }
+    }
+    else
+    {
+        var semParenteses = prazo.substring(n+1, m);
+    	var array = semParenteses.split(" ");
+    	var dias = parseInt(array[0]) + qtdeExtraDias;
+    	var diasUteis = "("+dias+" dias úteis)";
+    	n = prazo.indexOf("(");
+    	m = prazo.indexOf(")");
+    	prazo = prazo.replace(prazo.substring(n, m+1), "");
+    	var textoFinal = prazo + diasUteis;
+    }
+    
+    $( this ).text(textoFinal);
+});
+  
+  /*
+  if(areaRestrita == true){
+    avisoAreaRestrita();
+  }
+  */
+}
+
+
+function FuncChkFreightEnd(){
+  
+  //console.log("teste");
+  ajusteFrete();
+  
+  var areaRestrita = false;
+  
+  $("[id=idTxtObsCEPFC]").each(function( index ) {
+    
+    var array = $("[id=idTxtNomeCEPFC]").toArray();
+    var nomeServico = array[index].innerText;
+    var qtdeExtraDias = 0;
+    
+    if (nomeServico == "Encomenda PAC:")
+    {
+        qtdeExtraDias = 3;
+    }
+    else
+    {
+        qtdeExtraDias = 3;
+    }
+    
+    
+    var prazo = $( this ).text();
+    //apagar prazo manual
+    var n = prazo.indexOf("(");
+    var m = prazo.indexOf(")");
+    prazo = prazo.replace(prazo.substring(n, m+1), "");
+    n = prazo.indexOf("(");
+    m = prazo.indexOf(")");
+    if (m == -1 || n == -1)
+    {
+        var textoFinal = $( this ).text();
+      	if (textoFinal != "Frete Gratuito")
+        {
+            areaRestrita = true;
+            //textoFinal = prazo + "(área com entrega restrita)";
+          textoFinal = prazo + "(12 dias úteis)";
+        }
+    }
+    else
+    {
+        var semParenteses = prazo.substring(n+1, m);
+    	var array = semParenteses.split(" ");
+    	var dias = parseInt(array[0]) + qtdeExtraDias;
+    	var diasUteis = "("+dias+" dias úteis)";
+    	n = prazo.indexOf("(");
+    	m = prazo.indexOf(")");
+    	prazo = prazo.replace(prazo.substring(n, m+1), "");
+    	var textoFinal = prazo + diasUteis;
+    }
+    
+    
+    $( this ).text(textoFinal);
+});
+  
+  /*
+  if(areaRestrita == true){
+    avisoAreaRestrita();
+  }
+  */
+  
+  
+  
+}
+
+function FuncChkPaymentBegin(){
+  
+  ajusteFrete();  
+}
+
+
+function FuncChkCartEnd(){
+  
+  //=============== AJUSTE FRETE
+  ajusteFrete();
+  //================================
+
+}
+
+  
+function FuncChkPaymentEnd(){
+ 
+  //FuncChkChangeTxtPagto("16","<label for=Pagto16>VISA Electron (débito - à vista)</label>"); 
+  //FuncChkChangeTxtPagto("25","<label for=Pagto25>MasterCard Maestro (débito - à vista)</label>"); 
+  FuncChkChangeTxtPagto("3_2","<label for=Pagto3_2>Diners (crédito - até 6x sem juros)</label>"); 
+  FuncChkChangeTxtPagto("3_7","<label for=Pagto3_7>Elo (crédito - até 6x sem juros)</label>"); 
+  FuncChkChangeTxtPagto("3_3","<label for=Pagto3_3>MasterCard (crédito - até 6x sem juros)</label>"); 
+  FuncChkChangeTxtPagto("3_4","<label for=Pagto3_4>VISA (crédito - até 6x sem juros)</label>"); 
+  FuncChkChangeTxtPagto("3_1","<label for=Pagto3_1>American Express (crédito - até 6x sem juros)</label>"); 
+  FuncChkChangeTxtPagto("3_5","<label for=Pagto3_5>Hipercard (crédito - até 6x sem juros)</label>");
+  
+  /*
+  //troca de posição
+  var elemMaestro = document.getElementById('idPagto25FC');
+  var tdPai = elemMaestro.parentNode;
+  tdPai.removeChild(elemMaestro);
+  tdPai.appendChild(elemMaestro);
+  
+  var elemVisaElectron = document.getElementById('idPagto16FC');
+  tdPai.removeChild(elemVisaElectron);
+  tdPai.appendChild(elemVisaElectron);
+  */
+  
+  var elemDinners = document.getElementById('idPagtoCC2FC');
+  var tdPai = elemDinners.parentNode;
+  
+  var elemElo = document.getElementById('idPagtoCC7FC');
+  tdPai.removeChild(elemElo);
+  tdPai.appendChild(elemElo);
+  
+  var elemHipercard = document.getElementById('idPagtoCC5FC');
+  tdPai.removeChild(elemHipercard);
+  tdPai.appendChild(elemHipercard);
+  
+  
+  var elemDinners = document.getElementById('idPagtoCC2FC');
+  tdPai.removeChild(elemDinners);
+  tdPai.appendChild(elemDinners);
+  
+  var elemAmex = document.getElementById('idPagtoCC1FC');
+  tdPai.removeChild(elemAmex);
+  tdPai.appendChild(elemAmex);
+  
+  
+  
+  
+  var elemTroca = document.getElementById('idPagto9FC');
+  
+  
+  if (elemTroca != null)
+  {
+      tdPai.removeChild(elemTroca);
+      tdPai.appendChild(elemTroca);
+  }
+  
+  var elemCupom = document.getElementById('idPagto10FC');
+  
+  if (elemCupom != null)
+  {
+      tdPai.removeChild(elemCupom);
+      tdPai.appendChild(elemCupom);
+  }
+  
+  
+  
+  
+  
+  //nome da forma de pagamento
+  //CREDITO
+  var elemTituloCredito = document.createElement('div');
+  elemTituloCredito.innerHTML = "<div style='width: 50%; float:left;'><strong>CARTÃO DE CRÉDITO</strong><div>";
+  elemTituloCredito.style.backgroundColor = "#f2f2f2";
+  elemTituloCredito.style.color = "#666666";
+  elemTituloCredito.style.padding = "5px 0px 5px 8px";
+  elemTituloCredito.style.margin = "10px 0px 10px 0px";
+  elemTituloCredito.style.height = "24px";
+  elemTituloCredito.style.lineHeight = "24px";
+  
+  var logoCielo = document.createElement('img');
+  logoCielo.style.height = "18px";
+  logoCielo.style.width = "53px";
+  logoCielo.style.margin = "3px 8px 3px";
+  logoCielo.src = "<baseloja>images/logoCielo.png";
+  logoCielo.style.float = "right";
+  
+  elemTituloCredito.appendChild(logoCielo);
+  
+  var elemMastercard = document.getElementById('idPagtoCC3FC');
+  
+  
+  tdPai.insertBefore(elemTituloCredito,elemMastercard);
+  
+  /*
+  //DEBITO
+  var elemTituloDebito = document.createElement('div');
+  elemTituloDebito.innerHTML = "<div style='width: 50%; float:left;'><strong>CARTÃO DE DÉBITO</strong></div>";
+  elemTituloDebito.style.backgroundColor = "#f2f2f2";
+  elemTituloDebito.style.color = "#666666";
+  elemTituloDebito.style.padding = "5px 0px 5px 8px";
+  elemTituloDebito.style.margin = "10px 0px 10px 0px";
+  elemTituloDebito.style.height = "24px";
+  elemTituloDebito.style.lineHeight = "24px";
+  
+  var logoCieloDois = document.createElement('img');
+  logoCieloDois.style.height = "18px";
+  logoCieloDois.style.width = "53px";
+  logoCieloDois.style.margin = "3px 8px 3px";
+  logoCieloDois.src = "<baseloja>images/logoCielo.png";
+  logoCieloDois.style.float = "right";
+  
+  elemTituloDebito.appendChild(logoCieloDois);
+   
+  tdPai.insertBefore(elemTituloDebito,elemMaestro);
+  */
+  
+  if (elemTroca != null)
+  {
+      var elemTituloTroca = document.createElement('div');
+      elemTituloTroca.innerHTML = "<strong>TROCA</strong>";
+      elemTituloTroca.style.backgroundColor = "#f2f2f2";
+      elemTituloTroca.style.color = "#666666";
+      elemTituloTroca.style.padding = "5px 0px 5px 8px";
+      elemTituloTroca.style.margin = "10px 0px 10px 0px";
+   
+      tdPai.insertBefore(elemTituloTroca,elemTroca);
+  }
+  
+  if (elemCupom != null)
+  {
+      var elemTituloCupom = document.createElement('div');
+      elemTituloCupom.innerHTML = "<strong>CUPOM</strong>";
+      elemTituloCupom.style.backgroundColor = "#f2f2f2";
+      elemTituloCupom.style.color = "#666666";
+      elemTituloCupom.style.padding = "5px 0px 5px 8px";
+      elemTituloCupom.style.margin = "10px 0px 10px 0px";
+   
+      tdPai.insertBefore(elemTituloCupom,elemCupom);
+  }
+  
+  
+}
+  
+
+  
+function FuncChkChangeTxtPagto(sPagto,sTxt){
+var oPagto=F$.GetID("idTxtPagto"+ sPagto +"FC");
+if(oPagto){oPagto.innerHTML=sTxt;}
+}
+  
+
+  
+
+</script>
+      
+       
